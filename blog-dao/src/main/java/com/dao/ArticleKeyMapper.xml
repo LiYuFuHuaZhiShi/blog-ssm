@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ArticleKeyMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.ArticleKey" >
+    <id column="kta_id" property="ktaId" jdbcType="INTEGER" />
+    <result column="article_Id" property="articleId" jdbcType="INTEGER" />
+    <result column="key_Id" property="keyId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    kta_id, article_Id, key_Id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_key
+    where kta_id = #{ktaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_key
+    where kta_id = #{ktaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.ArticleKey" >
+    insert into article_key (kta_id, article_Id, key_Id
+      )
+    values (#{ktaId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{keyId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.ArticleKey" >
+    insert into article_key
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ktaId != null" >
+        kta_id,
+      </if>
+      <if test="articleId != null" >
+        article_Id,
+      </if>
+      <if test="keyId != null" >
+        key_Id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ktaId != null" >
+        #{ktaId,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="keyId != null" >
+        #{keyId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.ArticleKey" >
+    update article_key
+    <set >
+      <if test="articleId != null" >
+        article_Id = #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="keyId != null" >
+        key_Id = #{keyId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where kta_id = #{ktaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.ArticleKey" >
+    update article_key
+    set article_Id = #{articleId,jdbcType=INTEGER},
+      key_Id = #{keyId,jdbcType=INTEGER}
+    where kta_id = #{ktaId,jdbcType=INTEGER}
+  </update>
+
+  <!--通过文章id查找文章所对应关键字表中的关键字id-->
+  <select id="selectKeyIdByArticleId" parameterType="Integer" resultType="Integer">
+    select
+    key_Id
+    from
+    article_key
+    where
+    article_Id = #{aid}
+  </select>
+
+</mapper>
