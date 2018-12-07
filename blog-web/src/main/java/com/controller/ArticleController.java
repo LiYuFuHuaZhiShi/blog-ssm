@@ -22,6 +22,7 @@ public class ArticleController {
     @Autowired
     private TypeService typeService;//类别
 
+    //显示首页
     @RequestMapping(value = "/index.action")
     public String toIndex(Model model){
         //对文章的内容，点击量，类别，关键字查询
@@ -36,6 +37,11 @@ public class ArticleController {
         //最新国内国外新闻（通过发布时间判断）
 
         return "index";
+    }
+
+    @RequestMapping(value = "")
+    public String writeBlog(){
+        return "";
     }
 
 }

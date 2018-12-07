@@ -3,6 +3,12 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+    #home{}
+    #home .mouseover{display:none}
+    #home:hover .mouseout{display:none}
+    #home:hover .mouseover{display:block}
+</style>
 
 <nav class="nav navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -34,6 +40,9 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    <a href="#"><img src="img/icon/笔.png" alt="铅笔" height="20" width="20" style="margin-right: 6px;">写博客</a>
+                </li>
+                <li>
                     <ul class="nav navbar-nav">
                         <c:choose>
                             <c:when test="${sessionScope.user.username != null}">
@@ -54,10 +63,14 @@
                                 <%--<li><a href="${pageContext.request.contextPath }/user_tologin.action" class="navbar-link" style="margin-right: 30px;">请登录</a></li>--%>
                             </c:when>
                         </c:choose>
-                        <li></li>
                     </ul>
                 </li>
-
+                <li>
+                    <a href="#" style="margin-right: 0px;" id="home">
+                        <img src="img/icon/搜索%20(1).png" alt="搜索前" height="20" width="20" class="mouseover">
+                        <img src="img/icon/搜索.png" alt="搜索后" height="20" width="20" class="mouseout">
+                    </a>
+                </li>
             </ul>
         <%--<a href="${pageContext.request.contextPath }/user_torequest.action" class="navbar-link" style="margin-right: 30px;">注册</a>
             <a href="${pageContext.request.contextPath }/user_tologin.action" class="navbar-link" style="margin-right: 30px;">登录</a>--%>
