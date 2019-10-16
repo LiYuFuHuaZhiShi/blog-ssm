@@ -27,6 +27,16 @@ public class Article {
 
     private User user;//用户
 
+    private List<Comment> commentList;//评论
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
     public User getUser() {
         return user;
     }
@@ -113,5 +123,34 @@ public class Article {
 
     public void setAuthorId(Integer authorId) {
         this.authorId = authorId;
+    }
+
+
+    public Article() {
+
+    }
+
+    public Article(Integer aid, String title, Date time) {
+        this.aid = aid;
+        this.title = title;
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "aid=" + aid +
+                ", title='" + title + '\'' +
+                ", time=" + time +
+                ", contentId=" + contentId +
+                ", typeId=" + typeId +
+                ", authorId=" + authorId +
+                ", thecontent=" + thecontent +
+                ", thetype=" + thetype +
+                ", theclick=" + theclick +
+                ", keywordsList=" + keywordsList +
+                ", user=" + user +
+                ", commentList=" + commentList +
+                '}';
     }
 }

@@ -25,7 +25,7 @@ public class TypeServiceImpl implements com.service.TypeService {
     private UserMapper userMapper;//用户（用来查询文章作者）
 
     //通过点击量判断，根据点击量排序出前三个
-    public List<Article> hotspotList(){
+    public List<Article> hotspotList() {
         List<Article> articleList1 = findArticlesAllClick();//查询出所有文章的所有点击量
 
         /*ArticleServiceImpl articleService = new ArticleServiceImpl();
@@ -42,9 +42,8 @@ public class TypeServiceImpl implements com.service.TypeService {
 
     /**
      * 查询所有文章的点击量
-     *
      */
-    public List<Article> findArticlesAllClick(){
+    public List<Article> findArticlesAllClick() {
         //查询所有文章
         List<Article> articleList = articleMapper.selectAllArticles();
         List<Article> articleList1 = new ArrayList<>();
@@ -62,7 +61,7 @@ public class TypeServiceImpl implements com.service.TypeService {
     /**
      * 根据点击量倒序排序
      */
-    public List<Integer> sortClick(List<Article> articleList1){
+    public List<Integer> sortClick(List<Article> articleList1) {
         List<Click> clickList = new ArrayList<>();
         for (Article a :
                 articleList1) {
@@ -71,7 +70,7 @@ public class TypeServiceImpl implements com.service.TypeService {
         }
         Collections.sort(clickList, new Comparator<Click>() {
             public int compare(Click c1, Click c2) {//定义方法重写sort方法
-                //按照点击量大小进行降序排列  
+                //按照点击量大小进行降序排列
                 if (c1.getClick() < c2.getClick()) {//小返回1
                     return 1;
                 }
@@ -102,7 +101,6 @@ public class TypeServiceImpl implements com.service.TypeService {
         }
         return clicks;
     }
-
 
 
 }

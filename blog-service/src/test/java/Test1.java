@@ -1,16 +1,14 @@
-import com.entity.Article;
 import com.entity.Click;
-import com.service.impl.ArticleServiceImpl;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Test1 {
     @Test
     public void TestFindArticleAlls() {
-        ArticleServiceImpl articleService = new ArticleServiceImpl();
-        Map<List<Article>, Integer> map = articleService.selectArticleAll();
-        System.out.println(map);
     }
 
     @Test
@@ -54,7 +52,12 @@ public class Test1 {
     }
 
 
-
+    @Test
+    public void test3() {
+        String headpath = "D:\\front-end\\picture\\鬼刀.jpg";
+        headpath.replace("D:\\front-end\\picture\\", "");
+        System.out.println(headpath.replace("D:\\front-end\\picture\\", ""));
+    }
 
 
 }

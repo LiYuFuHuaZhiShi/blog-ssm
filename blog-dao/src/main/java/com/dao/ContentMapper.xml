@@ -1,65 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.ContentMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.Content" >
-    <id column="conid" property="conid" jdbcType="INTEGER" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.entity.Content" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    conid
-  </sql>
-  <sql id="Blob_Column_List" >
-    content
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from content
-    where conid = #{conid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from content
-    where conid = #{conid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.entity.Content" >
-    insert into content (conid, content)
-    values (#{conid,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.entity.Content" >
-    insert into content
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="conid != null" >
-        conid,
-      </if>
-      <if test="content != null" >
-        content,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="conid != null" >
-        #{conid,jdbcType=INTEGER},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Content" >
-    update content
-    <set >
-      <if test="content != null" >
-        content = #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where conid = #{conid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.entity.Content" >
-    update content
-    set content = #{content,jdbcType=LONGVARCHAR}
-    where conid = #{conid,jdbcType=INTEGER}
-  </update>
+<mapper namespace="com.dao.ContentMapper">
+    <resultMap id="BaseResultMap" type="com.entity.Content">
+        <id column="conid" property="conid" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.entity.Content" extends="BaseResultMap">
+        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        conid
+    </sql>
+    <sql id="Blob_Column_List">
+        content
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from content
+        where conid = #{conid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from content
+        where conid = #{conid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.entity.Content">
+        insert into content (conid, content)
+        values (#{conid,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.entity.Content">
+        <selectKey keyProperty="conid" resultType="Integer" order="AFTER">
+            select max(conid) from content
+        </selectKey>
+        insert into content
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="conid != null">
+                conid,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="conid != null">
+                #{conid,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.entity.Content">
+        update content
+        <set>
+            <if test="content != null">
+                content = #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where conid = #{conid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.entity.Content">
+        update content
+        set content = #{content,jdbcType=LONGVARCHAR}
+        where conid = #{conid,jdbcType=INTEGER}
+    </update>
 </mapper>

@@ -27,4 +27,10 @@ public interface ArticleMapper {
     //通过排序后返回的点击量列表查询相对应的文章
     List<Article> selectArticlesByClick(List<Integer> clickList);
 
+    //保存所有
+    void insertArticleAll(Article article);
+
+    //根据用户id查出此用户的所有文章
+    List<Article> selectAllArticlesByUid(Integer uid);
+
 }

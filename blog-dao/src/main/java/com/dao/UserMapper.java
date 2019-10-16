@@ -20,6 +20,6 @@ public interface UserMapper {
     User selectByUserName(String username);
 
     //对用户进行登陆验证
-    User selectUser(@Param("username")String username, @Param("password") String password);
+    User selectUser(@Param("username") String username, @Param("password") String password, @Param("grade") String grade);
 
 }

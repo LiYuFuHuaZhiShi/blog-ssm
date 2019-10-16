@@ -825,9 +825,10 @@
     <table id="210" parent="2" name="content"/>
     <table id="211" parent="2" name="keywords"/>
     <table id="212" parent="2" name="news"/>
-    <table id="213" parent="2" name="type"/>
-    <table id="214" parent="2" name="user"/>
-    <column id="215" parent="206" name="aid">
+    <table id="213" parent="2" name="picture"/>
+    <table id="214" parent="2" name="type"/>
+    <table id="215" parent="2" name="user"/>
+    <column id="216" parent="206" name="aid">
       <Position>1</Position>
       <Comment>文章id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -835,61 +836,75 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="206" name="title">
+    <column id="217" parent="206" name="title">
       <Position>2</Position>
       <Comment>文章标题</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="217" parent="206" name="time">
+    <column id="218" parent="206" name="time">
       <Position>3</Position>
       <Comment>发布时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="218" parent="206" name="content_Id">
+    <column id="219" parent="206" name="content_Id">
       <Position>4</Position>
       <Comment>内容</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="219" parent="206" name="type_Id">
+    <column id="220" parent="206" name="type_Id">
       <Position>5</Position>
       <Comment>类别</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="220" parent="206" name="author_Id">
+    <column id="221" parent="206" name="author_Id">
       <Position>6</Position>
       <Comment>文章作者，对应用户表</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="221" parent="206" name="a_con">
+    <index id="222" parent="206" name="a_con">
       <ColNames>content_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="222" parent="206" name="a_t">
+    <index id="223" parent="206" name="a_t">
       <ColNames>type_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="223" parent="206" name="a_u">
+    <index id="224" parent="206" name="a_u">
       <ColNames>author_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="224" parent="206" name="PRIMARY">
+    <key id="225" parent="206" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>aid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="225" parent="206" name="a_u">
+    <foreign-key id="226" parent="206" name="a_con">
+      <ColNames>content_Id</ColNames>
+      <RefSchemaName>blog</RefSchemaName>
+      <RefTableName>content</RefTableName>
+      <RefColNames>conid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="227" parent="206" name="a_t">
+      <ColNames>type_Id</ColNames>
+      <RefSchemaName>blog</RefSchemaName>
+      <RefTableName>type</RefTableName>
+      <RefColNames>tid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="228" parent="206" name="a_u">
       <ColNames>author_Id</ColNames>
       <RefSchemaName>blog</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>uid</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="226" parent="207" name="kta_id">
+    <column id="229" parent="207" name="kta_id">
       <Position>1</Position>
       <Comment>文章和关键字关系表的id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -897,46 +912,46 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="207" name="article_Id">
+    <column id="230" parent="207" name="article_Id">
       <Position>2</Position>
       <Comment>文章id</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="228" parent="207" name="key_Id">
+    <column id="231" parent="207" name="key_Id">
       <Position>3</Position>
       <Comment>关键字id</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="229" parent="207" name="ak_a">
+    <index id="232" parent="207" name="ak_a">
       <ColNames>article_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="230" parent="207" name="ak_k">
+    <index id="233" parent="207" name="ak_k">
       <ColNames>key_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="231" parent="207" name="PRIMARY">
+    <key id="234" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>kta_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="232" parent="207" name="ak_a">
+    <foreign-key id="235" parent="207" name="ak_a">
       <ColNames>article_Id</ColNames>
       <RefSchemaName>blog</RefSchemaName>
       <RefTableName>article</RefTableName>
       <RefColNames>aid</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="233" parent="207" name="ak_k">
+    <foreign-key id="236" parent="207" name="ak_k">
       <ColNames>key_Id</ColNames>
       <RefSchemaName>blog</RefSchemaName>
       <RefTableName>keywords</RefTableName>
       <RefColNames>kid</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="234" parent="208" name="clid">
+    <column id="237" parent="208" name="clid">
       <Position>1</Position>
       <Comment>点击量id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -944,41 +959,41 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="208" name="click">
+    <column id="238" parent="208" name="click">
       <Position>2</Position>
       <Comment>点击量</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="208" name="comment">
+    <column id="239" parent="208" name="comment">
       <Position>3</Position>
       <Comment>评论量</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="208" name="articleId">
+    <column id="240" parent="208" name="articleId">
       <Position>4</Position>
       <Comment>文章id</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="238" parent="208" name="cl_a">
+    <index id="241" parent="208" name="cl_a">
       <ColNames>articleId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="239" parent="208" name="PRIMARY">
+    <key id="242" parent="208" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>clid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="240" parent="208" name="cl_a">
+    <foreign-key id="243" parent="208" name="cl_a">
       <ColNames>articleId</ColNames>
       <RefSchemaName>blog</RefSchemaName>
       <RefTableName>article</RefTableName>
       <RefColNames>aid</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="241" parent="209" name="comid">
+    <column id="244" parent="209" name="comid">
       <Position>1</Position>
       <Comment>评论id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -986,41 +1001,58 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="209" name="content">
+    <column id="245" parent="209" name="content">
       <Position>2</Position>
       <Comment>评论内容</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="209" name="time">
+    <column id="246" parent="209" name="time">
       <Position>3</Position>
       <Comment>评论时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="209" name="articleId">
+    <column id="247" parent="209" name="articleId">
       <Position>4</Position>
       <Comment>文章id</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="245" parent="209" name="com_a">
+    <column id="248" parent="209" name="user_Id">
+      <Position>5</Position>
+      <Comment>发布评论的用户id</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="249" parent="209" name="com_a">
       <ColNames>articleId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="246" parent="209" name="PRIMARY">
+    <index id="250" parent="209" name="com_u">
+      <ColNames>user_Id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="251" parent="209" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>comid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="247" parent="209" name="com_a">
+    <foreign-key id="252" parent="209" name="com_a">
       <ColNames>articleId</ColNames>
       <RefSchemaName>blog</RefSchemaName>
       <RefTableName>article</RefTableName>
       <RefColNames>aid</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="248" parent="210" name="conid">
+    <foreign-key id="253" parent="209" name="com_u">
+      <ColNames>user_Id</ColNames>
+      <RefSchemaName>blog</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>uid</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="254" parent="210" name="conid">
       <Position>1</Position>
       <Comment>内容id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1028,18 +1060,18 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="210" name="content">
+    <column id="255" parent="210" name="content">
       <Position>2</Position>
       <Comment>文章内容</Comment>
       <DataType>longtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="250" parent="210" name="PRIMARY">
+    <key id="256" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>conid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="251" parent="211" name="kid">
+    <column id="257" parent="211" name="kid">
       <Position>1</Position>
       <Comment>关键字id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1047,18 +1079,18 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="211" name="keywords">
+    <column id="258" parent="211" name="keywords">
       <Position>2</Position>
       <Comment>关键字</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="253" parent="211" name="PRIMARY">
+    <key id="259" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>kid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="254" parent="212" name="nid">
+    <column id="260" parent="212" name="nid">
       <Position>1</Position>
       <Comment>新闻id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1066,30 +1098,49 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="212" name="time">
+    <column id="261" parent="212" name="time">
       <Position>2</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="212" name="content">
+    <column id="262" parent="212" name="content">
       <Position>3</Position>
       <Comment>新闻内容</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="212" name="author">
+    <column id="263" parent="212" name="author">
       <Position>4</Position>
       <Comment>新闻作者</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="258" parent="212" name="PRIMARY">
+    <key id="264" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>nid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="259" parent="213" name="tid">
+    <column id="265" parent="213" name="pid">
+      <Position>1</Position>
+      <Comment>图片id</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="213" name="picture_url">
+      <Position>2</Position>
+      <Comment>图片url</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="267" parent="213" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>pid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="268" parent="214" name="tid">
       <Position>1</Position>
       <Comment>类别id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1097,18 +1148,18 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="213" name="type">
+    <column id="269" parent="214" name="type">
       <Position>2</Position>
       <Comment>类别</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="261" parent="213" name="PRIMARY">
+    <key id="270" parent="214" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="262" parent="214" name="uid">
+    <column id="271" parent="215" name="uid">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1116,25 +1167,31 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="214" name="username">
+    <column id="272" parent="215" name="username">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="214" name="password">
+    <column id="273" parent="215" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="214" name="grade">
+    <column id="274" parent="215" name="grade">
       <Position>4</Position>
       <Comment>用户级别</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="266" parent="214" name="PRIMARY">
+    <column id="275" parent="215" name="head_pic">
+      <Position>5</Position>
+      <Comment>储存用户头像的url</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="276" parent="215" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>

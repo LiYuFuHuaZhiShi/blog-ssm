@@ -14,7 +14,7 @@ public class NewsServiceImpl implements NewsService {
     private NewsMapper newsMapper;
 
     //查询出所有的每日一句，并循环
-    public News selectAllNewsOutOne(){
+    public News selectAllNewsOutOne() {
         //查询所有news并放入列表
         List<News> newsList = newsMapper.selectAllNews();
         News news = new News();
@@ -24,7 +24,7 @@ public class NewsServiceImpl implements NewsService {
             n.setAuthor("----by:"+n.getAuthor());
         }*/
         //随机算法
-        int i = (int)(Math.random()*(newsList.size()));
+        int i = (int) (Math.random() * (newsList.size()));
         news = newsList.get(i);
         return news;
     }

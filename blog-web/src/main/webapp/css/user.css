@@ -1,0 +1,407 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+li {
+    list-style: none;
+}
+
+/*top*/
+#top {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-bottom: 1px solid #CCC;
+    color: #808080;
+    height: 26px;
+    left: 0;
+    line-height: 26px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    min-width: 1000px;
+}
+
+#top a {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+#top a:link, #hd_top a:active, #top a:visited {
+    color: #808080;
+}
+
+#top a:hover {
+    color: #FF6600;
+    text-decoration: underline;
+}
+
+#top_left {
+    float: left;
+    padding-left: 5px;
+}
+
+.red-pot::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 3px solid #f00;
+    border-radius: 100%;
+    margin-left: 2px;
+    vertical-align: text-top;
+}
+
+/*wrapper*/
+#wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#header {
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 20px;
+    padding: 30px 5px 5px 5px;
+}
+
+#logo {
+    float: right;
+    margin-top: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+#nav_block {
+    color: #DFDFDF;
+    float: left;
+    font-size: 14px;
+    margin: 15px auto 10px 0px;
+    padding-left: 0px;
+    padding-top: 3px;
+}
+
+#nav_block a {
+    color: #075DB3;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+#nav_block a:hover {
+    color: #FF6600;
+}
+
+#msg_count {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/*header*/
+#header {
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 20px;
+    padding: 30px 5px 5px 5px;
+}
+
+#header_user {
+    margin-top: 10px;
+    text-align: right;
+}
+
+#header_user_left {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#header_user_right {
+    float: right;
+}
+
+.pfs {
+    border: 1px solid gray;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+/*container*/
+#container {
+    height: 100%;
+    margin-top: 5px;
+    position: relative;
+}
+
+#app_bar {
+    float: left;
+    overflow: hidden;
+    padding-top: 0px;
+    width: 150px;
+}
+
+.app_r_1 {
+    background-color: #F7F7F7;
+    border-left: 1px solid #DFE1E1;
+    border-right: 1px solid #DBDEE2;
+    font-size: 0;
+    height: 1px;
+    line-height: 0;
+}
+
+.app_r_2 {
+    background-color: #F7F7F7;
+    border-left: 1px solid #DFE1E1;
+    border-right: 1px solid #DFE1E1;
+    font-size: 0;
+    height: 1px;
+    line-height: 0;
+    margin: 0 1px;
+}
+
+.app_r_3 {
+    background-color: #F7F7F7;
+    border-left: 1px solid #DFE1E1;
+    border-right: 1px solid #DFE1E1;
+    border-top: 1px solid #DFE1E1;
+    font-size: 0;
+    height: 0px;
+    line-height: 0;
+    margin: 0 2px;
+}
+
+#app_list_wrapper {
+    background-color: #F7F7F7;
+    border-left: 1px solid #DFE1E1;
+    border-right: 1px solid #DFE1E1;
+    height: 100%;
+}
+
+.app_list {
+    padding-top: 5px;
+}
+
+.app_list li {
+    clear: both;
+    height: 18px;
+    height: 25px;
+    line-height: 18px;
+}
+
+.app_list li img {
+    float: left;
+    padding: 10px 0 8px 12px;
+    vertical-align: middle;
+}
+
+.app_list li em a:link, .app_list li em a:active, .app_list li em a:visited {
+    color: #999;
+    display: block;
+    font-size: 12px;
+    padding: 0;
+    padding-top: 4px;
+}
+
+.app_list li em a:hover {
+    background-color: #F0F2F4;
+    display: block;
+    text-decoration: underline;
+}
+
+.app_list li em {
+    float: right;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-top: 4px;
+    width: 24px;
+}
+
+.app_list li a {
+    display: block;
+    padding: 8px 0 8px 35px;
+    text-decoration: underline;
+}
+
+.app_list li a:hover {
+    background-color: #F0F2F4;
+    display: block;
+}
+
+.app_list li #current {
+    background-color: #E9ECEF;
+    color: #333333;
+    cursor: default;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.app_list .current {
+    background: none repeat scroll 0 0 #E9ECEF;
+}
+
+/*.app_item{background-position:14px 8px;background-repeat:no-repeat;background-color:Transparent;}*/
+.app_setting {
+    border-top: 1px solid #DDD;
+    margin: 30px 10px 0px 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.app_list li a {
+    display: block;
+    padding: 8px 0 8px 35px;
+    text-decoration: underline;
+}
+
+#container_content {
+    float: left;
+    height: 100%;
+    margin-left: 20px;
+    width: 830px;
+}
+
+#main {
+    float: left;
+    padding-right: 0px;
+    width: 560px;
+}
+
+#user_profile_block {
+    padding-top: 10px;
+}
+
+#user_profile_block {
+    padding-top: 10px;
+}
+
+.user_avatar {
+    padding-right: 15px;
+}
+
+.user_avatar {
+    padding-right: 15px;
+}
+
+.img_avatar {
+    border: 1px solid #ccc;
+    padding: 2px;
+    width: 180px;
+    height: 180px;
+}
+
+.img_avatar {
+    border: 1px solid #ccc;
+    padding: 2px;
+    width: 180px;
+    height: 180px;
+}
+
+.img_avatar {
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+.avatar_nav_block li {
+    line-height: 1.8em;
+}
+
+.avatar_nav_block li {
+    line-height: 1.8em;
+}
+
+a:visited {
+    color: #075DB3;
+    text-decoration: underline;
+}
+
+a:link {
+    color: #075DB3;
+    text-decoration: underline;
+}
+
+.link_modify_info {
+    background: url(/img/background/鬼刀.jpg) no-repeat left center;
+    padding-left: 20px;
+}
+
+.link_modify_info {
+    background: url(/img/background/鬼刀.jpg) no-repeat left center;
+    padding-left: 20px;
+}
+
+a {
+    outline: 0;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.avatar_nav_block li {
+    line-height: 1.8em;
+}
+
+.avatar_nav_block li {
+    line-height: 1.8em;
+}
+
+.avatar_list {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}

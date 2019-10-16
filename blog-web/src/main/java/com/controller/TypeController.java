@@ -12,7 +12,7 @@ public class TypeController {
 
     //分类
     @RequestMapping(value = "/typePage.action")
-    public String typePage(){
+    public String typePage() {
         //对类别进行查找
         //
         return "type";

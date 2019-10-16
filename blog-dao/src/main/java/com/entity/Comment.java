@@ -11,6 +11,27 @@ public class Comment {
 
     private Integer articleid;
 
+    private Integer userId;
+
+    //每个评论对应的用户
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public Integer getComid() {
         return comid;
     }

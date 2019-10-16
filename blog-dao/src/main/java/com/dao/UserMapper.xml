@@ -1,101 +1,113 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.entity.User" >
-    <id column="uid" property="uid" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="grade" property="grade" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    uid, username, password, grade
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from user
-    where uid = #{uid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user
-    where uid = #{uid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.entity.User" >
-    insert into user (uid, username, password, 
-      grade)
-    values (#{uid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{grade,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.entity.User" >
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="uid != null" >
-        uid,
-      </if>
-      <if test="username != null" >
-        username,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="grade != null" >
-        grade,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="uid != null" >
-        #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="grade != null" >
-        #{grade,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.entity.User" >
-    update user
-    <set >
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
+<mapper namespace="com.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.entity.User">
+        <id column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="grade" property="grade" jdbcType="VARCHAR"/>
+        <result column="head_pic" property="headPic" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        uid, username, password, grade, head_pic
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where uid = #{uid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from user
+        where uid = #{uid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.entity.User">
+        insert into user (uid, username, password,
+        grade, head_pic)
+        values (#{uid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{grade,jdbcType=VARCHAR}, #{headPic,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.entity.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+            <if test="headPic != null">
+                head_pic,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                #{uid,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="headPic != null">
+                #{headPic,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.entity.User">
+        update user
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="grade != null">
+                grade = #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="headPic != null">
+                head_pic = #{headPic,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where uid = #{uid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.entity.User">
+        update user
+        set username = #{username,jdbcType=VARCHAR},
         password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="grade != null" >
-        grade = #{grade,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where uid = #{uid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.entity.User" >
-    update user
-    set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      grade = #{grade,jdbcType=VARCHAR}
-    where uid = #{uid,jdbcType=INTEGER}
-  </update>
+        grade = #{grade,jdbcType=VARCHAR}
+        head_pic = #{headPic,jdbcType=VARCHAR}
+        where uid = #{uid,jdbcType=INTEGER}
+    </update>
 
-  <!--按用户名查找-->
-  <select id="selectByUserName" parameterType="String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from user
-    where username = #{username}
-  </select>
+    <!--按用户名查找-->
+    <select id="selectByUserName" parameterType="String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where username = #{username}
+    </select>
 
-  <!-- 对用户登陆判断 -->
-  <select id="selectUser" parameterType="String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from user
-    where
-    username = #{username}
-    and password = #{password}
-  </select>
+    <!-- 对用户登陆判断 -->
+    <select id="selectUser" parameterType="String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where
+        username = #{username}
+        and password = #{password}
+        and grade = #{grade}
+    </select>
 
 </mapper>

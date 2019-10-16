@@ -9,6 +9,16 @@ public class User {
 
     private String grade;
 
+    private String headPic;
+
+    public String getHeadPic() {
+        return headPic;
+    }
+
+    public void setHeadPic(String headPic) {
+        this.headPic = headPic;
+    }
+
     public Integer getUid() {
         return uid;
     }

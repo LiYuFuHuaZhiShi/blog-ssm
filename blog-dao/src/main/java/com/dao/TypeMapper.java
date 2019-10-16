@@ -15,5 +15,7 @@ public interface TypeMapper {
 
     int updateByPrimaryKey(Type record);
 
+    //通过类别进行查询
+    Type selectByType(String type);
 
 }
